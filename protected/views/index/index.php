@@ -43,14 +43,14 @@
       <div class="large-8 columns ">
                 <h2>Saved.io</h2>
           <h3>Just type <span class="red">saved.io/</span> in front of any URL to save a bookmark to the cloud</h3>
-          <a href="http://saved.io/register.php"><img src="img/browser.png"></a>
+          <a href="<?php echo $this->createUrl('index/register') ?>"><img src="img/browser.png"></a>
           <h4>Saved.io works on any device, and in any browser without needing any extensions or plugins.  Your links are stored privately and not shared with anyone.</h3>
-          <a href="http://saved.io/register.php"><img class="viewimg" src="img/front.png"></a>
+          <a href="<?php echo $this->createUrl('index/register') ?>"><img class="viewimg" src="img/front.png"></a>
             </div>  
       
       <div class="large-4 columns">
         <div class="login-link">
-        <a href="#" data-dropdown="drop2">Login</a><a class="alittleright" href="http://saved.io/register.php">Register</a>
+        <a href="#" data-dropdown="drop2">Login</a><a class="alittleright" href="<?php echo $this->createUrl('index/register') ?>">Register</a>
         <div id="drop2" class="f-dropdown content" data-dropdown-content>
             <div class="form">
             <form name="form1" method="post" action="">
@@ -58,7 +58,7 @@
               <input name="myemail" type="text" id="myemail" placeholder="email">
               <p class="login_p">Password:</p>
               <input name="mypassword" type="password" id="mypassword" placeholder="password">
-              <span style="float:left;"><a href="preset.php">Forgot your pasword?</a></span> <input type="submit" name="login" class="small button secondary" value="Login">
+              <span style="float:left;"><a href="<?php echo $this->createUrl('index/preset') ?>">Forgot your pasword?</a></span> <input type="submit" name="login" class="small button secondary" value="Login">
             </form>
                       </div>
         </div>
@@ -87,13 +87,13 @@
     <div class="large-12 columns">
       <hr />
       <ul class="inline-list ">
-        <li><a href="http://saved.io/about.php">About Us</a></li>
-        <li><a href="http://saved.io/blog">Blog</li>
-        <li><a href="http://saved.io/api.php">API</a></li>  
-        <li><a href="http://saved.io/apps.php">Bookmarklet</a></li>
-        <li><a href="http://saved.io/faq.php">FAQ</a></li>
-        <li><a href="http://saved.io/contact.php">Contact</a></li>
-        <li><a href="http://saved.io/donate.php">Show Your Support</a></li>
+        <li><a href="<?php echo $this->createUrl('index/about') ?>">About Us</a></li>
+        <li><a href="<?php echo $this->createUrl('index/blog') ?>">Blog</li>
+        <li><a href="<?php echo $this->createUrl('index/api') ?>">API</a></li>  
+        <li><a href="<?php echo $this->createUrl('index/apps') ?>">Bookmarklet</a></li>
+        <li><a href="<?php echo $this->createUrl('index/faq') ?>">FAQ</a></li>
+        <li><a href="<?php echo $this->createUrl('index/contact') ?>">Contact</a></li>
+        <li><a href="<?php echo $this->createUrl('index/donate') ?>">Show Your Support</a></li>
       </ul> 
     </div>  
   </div>

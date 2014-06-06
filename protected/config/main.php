@@ -21,6 +21,17 @@ return [
 			'urlFormat' => 'path',
 			'showScriptName' => false,
 			'rules' => [
+				'/' => 'index/index',
+				'register' => 'index/register',
+				'preset' => 'index/preset',
+				'about' => 'index/about',
+				'blog' => 'index/blog',
+				'api' => 'index/api',
+				'apps' => 'index/apps',
+				'faq' => 'index/faq',
+				'contact' => 'index/contact',
+				'donate' => 'index/donate',
+
 				'<controller:\w+>/<id:\d+>' => '<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
 				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
