@@ -44,7 +44,12 @@
 					<input type="submit" class="small button secondary" value="Register" name='register'>
 					or <a href="<?php echo $this->createUrl('index/index') ?>">Login</a>
 					</form>
+			<?php if($user->hasErrors()): ?>
+			<p><?php echo array_values($user->errors)[0][0] ?></p><p>
+                      </p>
+			<?php else: ?>
 			<p>*All fields are required</p>
+			<?php endif ?>
 			</div>
 			</div>	
 		</div>	

@@ -20,7 +20,19 @@ class IndexController extends CController
 
 	public function actionRegister()
 	{
-		$this->render('register');
+		$user = new Users;
+
+		if(Yii::app()->request->isPostRequest)
+		{
+			$user->username = Yii::app()->request->getPost('username');
+			$user->email = Yii::app()->request->getPost('email');
+			$user->password = Yii::app()->request->getPost('password');
+
+			if($user->save())
+				$this->redirect(['index/index']);
+		}
+
+		$this->render('register', ['user' => $user]);
 	}
 
 	public function actionPreset()
