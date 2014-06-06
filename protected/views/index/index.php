@@ -92,7 +92,6 @@
       <hr />
       <ul class="inline-list ">
         <li><a href="<?php echo $this->createUrl('index/about') ?>">About Us</a></li>
-        <li><a href="<?php echo $this->createUrl('index/blog') ?>">Blog</li>
         <li><a href="<?php echo $this->createUrl('index/api') ?>">API</a></li>  
         <li><a href="<?php echo $this->createUrl('index/apps') ?>">Bookmarklet</a></li>
         <li><a href="<?php echo $this->createUrl('index/faq') ?>">FAQ</a></li>

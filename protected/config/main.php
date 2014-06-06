@@ -25,7 +25,6 @@ return [
 				'register' => 'index/register',
 				'preset' => 'index/preset',
 				'about' => 'index/about',
-				'blog' => 'index/blog',
 				'api' => 'index/api',
 				'apps' => 'index/apps',
 				'faq' => 'index/faq',

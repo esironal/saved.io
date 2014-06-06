@@ -45,11 +45,6 @@ class IndexController extends CController
 		$this->render('about');
 	}
 
-	public function actionBlog()
-	{
-		$this->render('blog');
-	}
-
 	public function actionApi()
 	{
 		$this->render('api');
