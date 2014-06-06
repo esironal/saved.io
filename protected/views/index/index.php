@@ -60,8 +60,10 @@
               <input name="mypassword" type="password" id="mypassword" placeholder="password">
               <span style="float:left;"><a href="<?php echo $this->createUrl('index/preset') ?>">Forgot your pasword?</a></span> <input type="submit" name="login" class="small button secondary" value="Login">
             </form>
-            <?php /* ?><p>Wrong Username or Password</p><p>
-                      </p><?php */ ?>
+            <?php if($model->hasErrors('password')): ?>
+            <p><?php echo $model->errors['password'][0] ?></p><p>
+                      </p>
+            <?php endif ?>
                       </div>
         </div>
       </div>

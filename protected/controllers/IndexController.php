@@ -4,7 +4,18 @@ class IndexController extends CController
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$model = new LoginForm;
+
+		if(Yii::app()->request->isPostRequest)
+		{
+			$model->username = Yii::app()->request->getPost('myemail');
+			$model->password = Yii::app()->request->getPost('mypassword');
+
+			if($model->validate())
+				$model->login();
+		}
+
+		$this->render('index', ['model' => $model]);
 	}
 
 	public function actionRegister()
@@ -56,5 +67,11 @@ class IndexController extends CController
 	{
 		if($error = Yii::app()->errorHandler->error)
 			$this->render('error', $error);
+	}
+
+	public function actionLogout()
+	{
+		Yii::app()->user->logout();
+		$this->redirect(Yii::app()->homeUrl);
 	}
 }
