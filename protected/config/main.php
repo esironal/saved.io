@@ -28,8 +28,6 @@ return [
 				'api' => 'index/api',
 				'apps' => 'index/apps',
 				'faq' => 'index/faq',
-				'contact' => 'index/contact',
-				'donate' => 'index/donate',
 				'key' => 'index/key',
 				'bookmarklet.js' => 'index/bookmarklet',
 				'add' => 'index/add',
