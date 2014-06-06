@@ -50,6 +50,11 @@ class IndexController extends CController
 		$this->render('api');
 	}
 
+	public function actionKey()
+	{
+		$this->render('key');
+	}
+
 	public function actionApps()
 	{
 		$this->render('apps');

@@ -30,6 +30,10 @@ return [
 				'faq' => 'index/faq',
 				'contact' => 'index/contact',
 				'donate' => 'index/donate',
+				'key' => 'index/key',
+
+				'api/<action:create|delete|lists>' => 'api/<action>',
+				'api/bookmarks/<name>' => 'api/bookmarks',
 
 				'<controller:\w+>/<id:\d+>' => '<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
