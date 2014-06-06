@@ -87,7 +87,6 @@
 				<li><a href="<?php echo $this->createUrl('index/faq') ?>">FAQ</a></li>
 				<li><a href="<?php echo $this->createUrl('index/apps') ?>">Bookmarklet</a></li>
 				<li><a href="<?php echo $this->createUrl('index/contact') ?>">Contact</a></li>
-				<li><a href="<?php echo $this->createUrl('index/donate') ?>">Show Your Support</a></li>
 			</ul>	
 		</div>	
 	</footer></div>	
