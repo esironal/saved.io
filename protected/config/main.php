@@ -31,6 +31,8 @@ return [
 				'contact' => 'index/contact',
 				'donate' => 'index/donate',
 				'key' => 'index/key',
+				'bookmarklet.js' => 'index/bookmarklet',
+				'add' => 'index/add',
 
 				'api/<action:create|delete|lists>' => 'api/<action>',
 				'api/bookmarks/<name>' => 'api/bookmarks',

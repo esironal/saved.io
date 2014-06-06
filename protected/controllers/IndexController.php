@@ -60,6 +60,18 @@ class IndexController extends CController
 		$this->render('apps');
 	}
 
+	public function actionAdd()
+	{
+		//$this->render('add');
+	}
+
+	public function actionBookmarklet()
+	{
+		$this->layout = false;
+		header('Content-Type: application/x-javascript');
+		$this->render('bookmarklet');
+	}
+
 	public function actionFaq()
 	{
 		$this->render('faq');
