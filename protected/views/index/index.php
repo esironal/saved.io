@@ -86,19 +86,7 @@
     </div>  
   </div>
   </div>
-  <footer>
-  <div class="row">
-    <div class="large-12 columns">
-      <hr />
-      <ul class="inline-list ">
-        <li><a href="<?php echo $this->createUrl('index/about') ?>">About Us</a></li>
-        <li><a href="<?php echo $this->createUrl('index/api') ?>">API</a></li>  
-        <li><a href="<?php echo $this->createUrl('index/apps') ?>">Bookmarklet</a></li>
-        <li><a href="<?php echo $this->createUrl('index/faq') ?>">FAQ</a></li>
-      </ul> 
-    </div>  
-  </div>
-  </footer>
+  <?php echo $this->renderPartial('//common/footer') ?>
 
   <script>
   document.write('<script src=' +

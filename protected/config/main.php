@@ -24,13 +24,11 @@ return [
 				'/' => 'index/index',
 				'register' => 'index/register',
 				'preset' => 'index/preset',
-				'about' => 'index/about',
-				'api' => 'index/api',
-				'apps' => 'index/apps',
-				'faq' => 'index/faq',
 				'key' => 'index/key',
-				'bookmarklet.js' => 'index/bookmarklet',
 				'add' => 'index/add',
+				
+				'<view:about|api|apps|faq>' => 'static/page',
+				'bookmarklet.js' => 'static/bookmarklet',
 
 				'api/<action:create|delete|lists>' => 'api/<action>',
 				'api/bookmarks/<name>' => 'api/bookmarks',
