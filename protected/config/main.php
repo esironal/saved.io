@@ -1,4 +1,5 @@
 <?php
+$environment = require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'environment.php';
 
 return [
 	'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
@@ -11,9 +12,18 @@ return [
 	'import' => [
 		'application.models.*',
 		'application.components.*',
+		'application.extensions.yii-mail.*',
 	],
 
 	'components' => [
+		'mail' => [
+			'class' => 'ext.yii-mail.YiiMail',
+			'transportType' => 'smtp',
+			'viewPath' => 'application.views.email',
+			'logging' => true,
+			'dryRun' => false,
+			'transportOptions' => $environment['mail']
+		],
 		'user' => [
 			'allowAutoLogin'=>true,
 		],
@@ -24,6 +34,7 @@ return [
 				'/' => 'index/index',
 				'register' => 'index/register',
 				'preset' => 'index/preset',
+				'presetFinish' => 'index/presetFinish',
 				'key' => 'index/key',
 				'add' => 'index/add',
 				
@@ -38,13 +49,7 @@ return [
 				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 			],
 		],
-		'db' => [
-			'connectionString' => 'mysql:host=localhost;dbname=saved',
-			'emulatePrepare' => true,
-			'username' => 'saved',
-			'password' => 'saved',
-			'charset' => 'utf8',
-		],
+		'db' => $environment['db'],
 		'errorHandler' => [
 			'errorAction' => 'index/error',
 		],
