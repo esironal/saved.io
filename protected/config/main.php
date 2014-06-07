@@ -32,11 +32,13 @@ return [
 			'showScriptName' => false,
 			'rules' => [
 				'/' => 'index/index',
-				'register' => 'index/register',
-				'preset' => 'index/preset',
-				'presetFinish' => 'index/presetFinish',
 				'key' => 'index/key',
 				'add' => 'index/add',
+
+				'register' => 'auth/register',
+				'preset' => 'auth/preset',
+				'presetFinish' => 'auth/presetFinish',
+				'logout' => 'auth/logout',
 				
 				'<view:about|api|apps|faq>' => 'static/page',
 				'bookmarklet.js' => 'static/bookmarklet',

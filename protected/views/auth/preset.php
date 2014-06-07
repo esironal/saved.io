@@ -48,7 +48,7 @@
     <?php if($success): ?>
     <p>A link to a page where you will be able to set a new password was sent to your email!</p>
     <?php elseif($model->hasErrors()): ?>
-    <p><?php echo array_values($model->errors)[0][0] ?><br /><a href="<?php echo $this->createUrl('index/preset') ?>">Go back and try again</a></p>
+    <p><?php echo array_values($model->errors)[0][0] ?><br /><a href="<?php echo $this->createUrl('auth/preset') ?>">Go back and try again</a></p>
     <?php else: ?>
 			<div class="form">
 			<form name="form1" method="post" action="">
