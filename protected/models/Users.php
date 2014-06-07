@@ -10,10 +10,10 @@ class Users extends CActiveRecord
 	public function rules()
 	{
 		return [
-			['username, email, password', 'required', 'message' => 'All fields are required'],
+			['username, email', 'required', 'message' => 'All fields are required'],
 			['email', 'email', 'message' => 'Invalid email address.'],
-			['salt', 'makeSalt', 'on' => 'insert'],
-			['password', 'makePassword', 'skipOnError' => true, 'on' => 'insert'],
+			['salt', 'makeSalt', 'on' => 'insert, changePassword'],
+			['password', 'makePassword', 'skipOnError' => true, 'on' => 'insert, changePassword'],
 			['username, email', 'unique', 'className' => 'Users', 'message' => 'This username or email is already in use.'],
 		];
 	}

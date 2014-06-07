@@ -10,7 +10,7 @@ class LoginForm extends CFormModel
 	public function rules()
 	{
 		return [
-			['username, password', 'required', 'message' => 'Wrong Username or Password.'],
+			['username', 'required', 'message' => 'Wrong Username or Password.'],
 			['password', 'authenticate']
 		];
 	}
