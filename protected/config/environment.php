@@ -2,11 +2,11 @@
 
 return [
 	'mail' => [
-		'host' => 'smtp.yandex.ru',
-		'username' => 'saved.io@yandex.ru',
-		'password' => 'Qq1Ww2Ee3',
-		'port' => '465',
-		'encryption' => 'tls',
+		'host' => '',
+		'username' => '',
+		'password' => '',
+		'port' => '',
+		'encryption' => '',
 	],
 	'db' => [
 		'connectionString' => 'mysql:host=localhost;dbname=saved',
