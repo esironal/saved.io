@@ -2,4 +2,3 @@ runtime
 html/assets
 protected/config/console.php
 protected/yiic
-protected/config/environment.php
