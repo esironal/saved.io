@@ -2,6 +2,13 @@
 
 class UserIdentity extends CUserIdentity
 {
+	private $_id;
+
+	public function getId()
+	{
+		return (int)$this->_id;
+	}
+
 	public function authenticate()
 	{
 		$user = Users::model()->find('email = :username OR username = :username', ['username' => $this->username]);
@@ -12,7 +19,10 @@ class UserIdentity extends CUserIdentity
 			if(!$user->checkPassword($this->password))
 				$this->errorCode = self::ERROR_PASSWORD_INVALID;
 			else
+			{
+				$this->_id = $user->id;
 				$this->errorCode = self::ERROR_NONE;
+			}
 
 		return !$this->errorCode;
 	}

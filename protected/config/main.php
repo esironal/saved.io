@@ -28,7 +28,8 @@ return [
 			'transportOptions' => $environment['mail']
 		],
 		'user' => [
-			'allowAutoLogin'=>true,
+			'class' => 'WebUser',
+			'allowAutoLogin' => true,
 		],
 		'urlManager' => [
 			'urlFormat' => 'path',
