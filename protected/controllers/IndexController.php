@@ -49,6 +49,17 @@ class IndexController extends CController
 
 	public function actionDelete()
 	{
+		$bookmark = Bookmarks::model()->findByPk(Yii::app()->request->getParam('bkid'));
+
+		if($bookmark !== null && $bookmark->user_id == Yii::app()->user->id)
+			$bookmark->delete();
+
+		$list = Lists::model()->findByPk(Yii::app()->request->getParam('listl'));
+		
+		if($list !== null && $list->user_id == Yii::app()->user->id)
+			$this->redirect(['index/index', 'listl' => $list->id]);
+		else
+			$this->redirect(['index/index']);
 	}
 
 	public function actionEdit()
