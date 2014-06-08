@@ -76,7 +76,7 @@
 				</div>
 				<div class='little-links'>
 				
-				<a href='<?php echo $bookmark->list ? $this->createUrl('index/delete', ['bkid' => $bookmark->id, 'listl' => $bookmark->list->id]) : $this->createUrl('index/delete', ['bkid' => $bookmark->id]) ?>'><span class='tinytiny'>Delete</span></a><a href='<?php echo $this->createUrl('index/delete', ['bkid' => $bookmark->id]) ?>'><span class='tinytime'>Edit</span></a>  <span class='tinytime'>Added <?php echo Yii::app()->format->timeago($bookmark->addition_date) ?>.</span>
+				<a href='<?php echo $this->createUrl('index/delete', ['bkid' => $bookmark->id]) ?>'><span class='tinytiny'>Delete</span></a><a href='<?php echo $this->createUrl('index/delete', ['bkid' => $bookmark->id]) ?>'><span class='tinytime'>Edit</span></a>  <span class='tinytime'>Added <?php echo Yii::app()->format->timeago($bookmark->addition_date) ?>.</span>
 				</div>
 				<?php endforeach ?>
 				<?php else: ?>
