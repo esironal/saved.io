@@ -31,13 +31,15 @@ return [
 			'class' => 'WebUser',
 			'allowAutoLogin' => true,
 		],
+		'session' => [
+			'cookieParams' => [
+				'domain' => '.' . $_SERVER['SERVER_NAME'],
+			]
+		],
 		'urlManager' => [
 			'urlFormat' => 'path',
 			'showScriptName' => false,
 			'rules' => [
-				'/' => 'index/index',
-				'key' => 'index/key',
-				'add' => 'index/add',
 
 				'register' => 'auth/register',
 				'preset' => 'auth/preset',
@@ -50,9 +52,12 @@ return [
 				'api/<action:create|delete|lists>' => 'api/<action>',
 				'api/bookmarks/<name>' => 'api/bookmarks',
 
-				'<controller:\w+>/<id:\d+>' => '<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+				'/' => 'index/index',
+				'key' => 'index/key',
+				'delete' => 'index/delete',
+				'edit' => 'index/edit',
+				'add' => 'index/add',
+				'<url:.*>' => 'index/addBySuffix',
 			],
 		],
 		'db' => $environment['db'],
