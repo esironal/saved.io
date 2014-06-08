@@ -16,6 +16,9 @@ return [
 	],
 
 	'components' => [
+		'format' => [
+			'class' => 'ext.timeago.TimeagoFormatter',
+		],
 		'mail' => [
 			'class' => 'ext.yii-mail.YiiMail',
 			'transportType' => 'smtp',
