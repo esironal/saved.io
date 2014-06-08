@@ -23,6 +23,14 @@ class Users extends CActiveRecord
 		return parent::model($className);
 	}
 
+	public function relations()
+	{
+		return [
+			'lists' => [self::HAS_MANY, 'Lists', 'user_id'],
+			'bookmarks' => [self::HAS_MANY, 'Bookmarks', 'user_id'],
+		];
+	}
+
 	public function checkPassword($password)
 	{
 		return $this->password === $this->hashPassword($password);
