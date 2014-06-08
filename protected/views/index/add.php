@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width">
-  	<title>Saved.io</title>
+  	<title><?php echo Yii::app()->name ?></title>
   	<link rel="stylesheet" href="https://savedio-penio.netdna-ssl.com/css/foundation.css">
   	<link rel="stylesheet" href="https://savedio-penio.netdna-ssl.com/css/add.css">
 

@@ -51,7 +51,7 @@ class AuthController extends CController
 			{
 				$success = true;
 
-				Mail::send($model->email, 'reset your saved.io password', 'preset_mail', ['salt' => $model->salt]);
+				Mail::send($model->email, 'reset your ' . Yii::app()->name . ' password', 'preset_mail', ['salt' => $model->salt]);
 			}
 		}
 
