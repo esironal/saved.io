@@ -30,4 +30,11 @@ class Bookmarks extends CActiveRecord
 			'list' => [self::BELONGS_TO, 'Lists', 'list_id'],
 		];
 	}
+
+	public function getFormattedNote()
+	{
+		return preg_replace_callback('/#(\w+)/iu', function($a){
+			return sprintf('<a class="radius secondary label hashtag" href="' . Yii::app()->createUrl('index/index') . '?q=%s">%s</a>', $a[1], $a[1]);
+		}, $this->note);
+	}
 }

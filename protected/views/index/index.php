@@ -75,7 +75,9 @@
 				<a class='linkage' style='background-image:url(https://www.google.com/s2/favicons?domain=<?php echo $bookmark->domain ?>);' href='<?php echo $bookmark->url ?>'><?php echo $bookmark->title ?></a>
 				</div>
 				<div class='little-links'>
-				
+				<?php if(mb_strlen($bookmark->formattedNote)): ?>
+				<div class="note"><?php echo $bookmark->formattedNote ?></div>
+				<?php endif ?>
 				<a href='<?php echo $this->createUrl('index/delete', ['bkid' => $bookmark->id, 'listl' => $currentList ? $currentList->id : '']) ?>'><span class='tinytiny'>Delete</span></a><a href='<?php echo $this->createUrl('index/edit', ['bkid' => $bookmark->id]) ?>'><span class='tinytime'>Edit</span></a>  <span class='tinytime'>Added <?php echo Yii::app()->format->timeago($bookmark->addition_date) ?>.</span>
 				</div>
 				<?php endforeach ?>
