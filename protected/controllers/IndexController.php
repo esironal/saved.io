@@ -25,6 +25,23 @@ class IndexController extends CController
 		else
 			$list = null;
 
+		if($list && Yii::app()->request->isPostRequest)
+		{
+			if(Yii::app()->request->getPost('list_delete') !== null)
+			{
+				$list->delete();
+			}
+			elseif(Yii::app()->request->getPost('list_delete_all') !== null)
+			{
+				foreach($list->bookmarks as $bookmark)
+					$bookmark->delete();
+
+				$list->delete();
+			}
+			
+			$this->redirect(['index/index']);
+		}
+
 		if($list)
 			$bookmarks = $list->bookmarks;
 		elseif($q)
