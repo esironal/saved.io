@@ -16,7 +16,12 @@ class IndexController extends CController
 		$q = Yii::app()->request->getParam('q');
 
 		if($list)
+		{
 			$list = Lists::model()->findByPk($list);
+
+			if($list !== null && $list->user_id != Yii::app()->user->id)
+				$list = null;
+		}
 		else
 			$list = null;
 
