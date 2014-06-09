@@ -61,7 +61,28 @@ class IndexController extends CController
 
 	public function actionAdd()
 	{
-		//$this->render('add');
+
+		$url = trim(Yii::app()->request->getParam('url', ''));
+		$title = Yii::app()->request->getParam('title');
+
+		$error = false;
+
+		if(Yii::app()->user->isGuest)
+			$error = 'Please Login First';
+		elseif($url === null || mb_strlen($url) == 0)
+			$error = 'No URL Dude!';
+		else
+		{
+			$bookmark = new Bookmarks;
+
+			$bookmark->user_id = Yii::app()->user->id;
+			$bookmark->url = $url;
+			$bookmark->title = $title;
+
+			$bookmark->save();
+		}
+
+		$this->render('add', ['error' => $error]);
 	}
 
 	public function actionAddBySuffix()
