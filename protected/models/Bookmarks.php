@@ -10,12 +10,33 @@ class Bookmarks extends CActiveRecord
 	public function rules()
 	{
 		return [
-			['user_id, addition_date', 'required'],
+			['user_id', 'required'],
 			['user_id', 'exist', 'className' => 'Users', 'attributeName' => 'id'],
 			['list_id', 'exist', 'className' => 'Lists', 'attributeName' => 'id'],
-			['addition_date', 'date'],
-			['title, domain, url', 'safe'],
+			['title, url, note', 'safe'],
+			['domain', 'autoDomain'],
 		];
+	}
+
+	public function autoDomain()
+	{
+		if(!in_array(mb_substr($this->url, 0, 7), ['http://', 'https:/'], true))
+			$this->url = 'http://' . $this->url;
+
+		$this->domain = parse_url($this->url, PHP_URL_HOST) ?: null;
+	}
+
+	public function beforeSave()
+	{
+		if(!parent::beforeSave())
+			return false;
+
+		$this->modifying_date = date('Y-m-d H:i:s');
+
+		if($this->isNewRecord)
+			$this->addition_date = date('Y-m-d H:i:s');
+
+		return true;
 	}
 
 	public static function model($className=__CLASS__)
