@@ -45,7 +45,7 @@ class IndexController extends CController
 		if($list)
 			$bookmarks = $list->bookmarks;
 		elseif($q)
-			$bookmarks = Yii::app()->user->model->bookmarks(['condition' => 'title LIKE :title OR url LIKE :title', 'params' => ['title' => sprintf('%%%s%%', $q)]]);
+			$bookmarks = Yii::app()->user->model->bookmarks(['condition' => 'title LIKE :pattern OR url LIKE :pattern OR note LIKE :pattern', 'params' => ['pattern' => sprintf('%%%s%%', $q)]]);
 		else
 			$bookmarks = Yii::app()->user->model->bookmarks;
 
