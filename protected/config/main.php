@@ -40,7 +40,6 @@ return [
 			'urlFormat' => 'path',
 			'showScriptName' => false,
 			'rules' => [
-
 				'register' => 'auth/register',
 				'preset' => 'auth/preset',
 				'presetFinish' => 'auth/presetFinish',
@@ -49,8 +48,9 @@ return [
 				'<view:about|api|apps|faq>' => 'static/page',
 				'bookmarklet.js' => 'static/bookmarklet',
 
-				'api/<action:create|delete|lists>' => 'api/<action>',
-				'api/bookmarks/<name>' => 'api/bookmarks',
+				'api/v1/<action:create|delete|lists>' => 'api/<action>',
+				'api/v1/bookmarks' => 'api/get',
+				'api/v1/bookmarks/<name>' => 'api/get',
 
 				'/' => 'index/index',
 				'key' => 'index/key',
