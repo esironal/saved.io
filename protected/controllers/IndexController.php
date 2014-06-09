@@ -56,7 +56,15 @@ class IndexController extends CController
 
 	public function actionKey()
 	{
-		$this->render('key');
+		if(Yii::app()->request->isPostRequest)
+		{
+			Yii::app()->user->model->key = md5(microtime(true));
+			Yii::app()->user->model->save();
+		}
+
+		$key = Yii::app()->user->model->key;
+
+		$this->render('key', ['key' => $key]);
 	}
 
 	public function actionAdd()
