@@ -15,6 +15,7 @@ class Users extends CActiveRecord
 			['salt', 'makeSalt', 'on' => 'insert, changePassword'],
 			['password', 'makePassword', 'skipOnError' => true, 'on' => 'insert, changePassword'],
 			['username, email', 'unique', 'className' => 'Users', 'message' => 'This username or email is already in use.'],
+			['key', 'length', 'is' => 32]
 		];
 	}
 
