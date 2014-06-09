@@ -21,7 +21,7 @@
 <p>bk_id: a bookmark id  </p>
 
 <h4>Retrieve Bookmarks</h4>
-<h5 class="endpoint"><?php echo $this->createAbsoluteUrl('api/bookmarks') ?></h5>
+<h5 class="endpoint"><?php echo $this->createAbsoluteUrl('api/get') ?></h5>
 <span class="label success radius methods">GET</span>
 <h6 class="params">Parameters</h6>
 <p>token : string user token </p>
@@ -30,7 +30,7 @@
 <p>limit: integer (optional)  <i>This will limit the number of bookmarks retrieved at a time</i></p> 	
 
 <h4>Retrieve Bookmarks from List</h4>
-<h5 class="endpoint"><?php echo $this->createAbsoluteUrl('api/bookmarks') ?>/<span class="blue">{List Name Goes Here}</span></h5>
+<h5 class="endpoint"><?php echo $this->createAbsoluteUrl('api/get') ?>/<span class="blue">{List Name Goes Here}</span></h5>
 <span class="label success radius methods">GET</span>
 <h6 class="params">Parameters</h6>
 <p>token : string user token </p>
