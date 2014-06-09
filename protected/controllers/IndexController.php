@@ -141,6 +141,31 @@ class IndexController extends CController
 
 	public function actionEdit()
 	{
+		$bookmark = Bookmarks::model()->findByPk(Yii::app()->request->getParam('bkid'));
+
+		if($bookmark === null)
+			$this->redirect(['index/index']);
+
+		if(Yii::app()->request->isPostRequest)
+		{
+			$bookmark->title = Yii::app()->request->getPost('bk_title');
+			$bookmark->url = Yii::app()->request->getPost('bk_url');
+			$bookmark->note = Yii::app()->request->getPost('bk_note');
+
+			$list = Lists::model()->findByPk(Yii::app()->request->getPost('bk_list'));
+
+			if($list !== null && $list->user_id == Yii::app()->user->id)
+				$bookmark->list_id = $list->id;
+			else
+				$bookmark->list_id = null;
+
+			$bookmark->save();
+			$this->redirect(['index/index']);
+		}
+
+		$lists = Yii::app()->user->model->lists;
+
+		$this->render('edit', ['bookmark' => $bookmark, 'lists' => $lists]);
 	}
 
 	public function actionError()
