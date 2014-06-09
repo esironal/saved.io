@@ -27,7 +27,7 @@ class Users extends CActiveRecord
 	{
 		return [
 			'lists' => [self::HAS_MANY, 'Lists', 'user_id'],
-			'bookmarks' => [self::HAS_MANY, 'Bookmarks', 'user_id'],
+			'bookmarks' => [self::HAS_MANY, 'Bookmarks', 'user_id', 'order' => 'id DESC'],
 		];
 	}
 
