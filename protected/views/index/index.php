@@ -86,8 +86,17 @@
 			</div>
 		</div>
 	</div>
-				
-				
+	<?php if($currentList): ?>
+	<div class="delete-buttons">
+		<div class="row">
+			<div class="large-12 columns">
+					<form action="" method="post">
+						<button type="submit" name="list_delete" class="small secondary button">Delete the list</button> <button type="submit" name="list_delete_all" class="small secondary button">Delete the list and its bookmarks</button><p></p>
+					</form>
+			</div>
+		</div>
+	</div>
+	<?php endif ?>
 
 				<div class="row">
 
