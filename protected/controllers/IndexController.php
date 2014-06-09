@@ -66,7 +66,62 @@ class IndexController extends CController
 
 	public function actionAddBySuffix()
 	{
-		echo 'hello!';
+		$url = mb_substr(Yii::app()->request->requestUri, 1);
+
+		if(!in_array(mb_substr($url, 0, 7), ['http://', 'https:/'], true))
+			$url = 'http://' . $url;
+
+		if(mb_strlen($url))
+		{
+			$bookmark = new Bookmarks;
+
+			$bookmark->user_id = Yii::app()->user->id;
+			$bookmark->url = $url;
+			$bookmark->title = $url;
+
+			if(($host = parse_url($url, PHP_URL_HOST)) !== null)
+			{
+				$bookmark->title = $host;
+
+				$curl = curl_init();
+
+				curl_setopt($curl, CURLOPT_URL, $url);
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 3);
+
+				$body = curl_exec($curl);
+
+				curl_close($curl);
+
+				if($body !== false && preg_match('#<title>([^<]+)#i', $body, $match))
+					$bookmark->title = $match[1];
+			}
+
+			$subdomain = isset($_SERVER['SUBDOMAIN']) ? $_SERVER['SUBDOMAIN'] : '';
+
+			if(mb_strlen($subdomain))
+			{
+				$list = Yii::app()->user->model->lists(['condition' => 'name = :name', 'params' => ['name' => $subdomain]]);
+				
+				if(count($list) == 0)
+				{
+					$list = new Lists;
+
+					$list->user_id = Yii::app()->user->id;
+					$list->name = $subdomain;
+
+					$list->save();
+				}
+				else
+					$list = $list[0];
+
+				$bookmark->list_id = $list->id;
+			}
+
+			$bookmark->save();
+		}
+
+		$this->redirect(['index/index']);
 	}
 
 	public function actionDelete()
